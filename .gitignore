@@ -15,10 +15,10 @@ ARCHIVE
 CHANGELOG
 INSTALL
 
-module/
-#/module/*.py
-#!/module/sw_sqlite3.py
-#!/module/sw_termopara.py
+#module/
+module/*
+!module/sw_sqlite3.py
+!module/sw_termopara.py
 
 #lib/w1thermsensor/.git/
 #lib/w1thermsensor/.git*
