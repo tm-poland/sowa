@@ -1,0 +1,16 @@
+/home/pi/sowa/log/sowa.log {
+  rotate 12
+  weekly
+  compress
+  missingok
+  notifempty
+}
+
+/home/pi/sowa/log/error.log {
+  rotate 12
+  weekly
+  compress
+  missingok
+  notifempty
+}
+
