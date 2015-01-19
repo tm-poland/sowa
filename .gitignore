@@ -17,6 +17,7 @@ INSTALL
 
 #module/
 module/*
+!module/__init__.py
 !module/sw_sqlite3.py
 !module/sw_termopara.py
 
