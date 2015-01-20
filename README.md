@@ -79,8 +79,10 @@ sudo chown root:root /etc/logrotate.d/sowa
 sqlite3 sowa.db
 .exit
 ```
-Możemy zrestartować RPi i brać się za dostosowywanie konfiguracji serwera SOWA do swoich potrzeb:
+1. Możemy zrestartować RPi i brać się za dostosowywanie konfiguracji serwera SOWA do swoich potrzeb:
 `sudo reboot`
+2. Frontend jest dostępny pod adresem:
+`http://ip_twojego_rpi/sowa`
 
 ## Licencja
 Do użytku prywatnego - bez ograniczeń. W innych przypadkach proszę o kontakt.
