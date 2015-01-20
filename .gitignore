@@ -11,9 +11,9 @@
 #public_html/
 #/public_html/config.inc.php
 
-ARCHIVE
-CHANGELOG
-INSTALL
+#ARCHIVE
+#CHANGELOG
+#INSTALL
 
 #module/
 #module/*

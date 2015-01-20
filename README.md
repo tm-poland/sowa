@@ -79,7 +79,7 @@ sudo chown root:root /etc/logrotate.d/sowa
 sqlite3 sowa.db
 .exit
 ```
-7. Możemy zrestartować RPi i brać się za dostosowywanie konfiguracji serwera SOWA do swoich potrzeb:
+Możemy zrestartować RPi i brać się za dostosowywanie konfiguracji serwera SOWA do swoich potrzeb:
 `sudo reboot`
 
 ## Licencja
