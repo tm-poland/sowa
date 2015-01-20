@@ -2,12 +2,12 @@
 Przedmiotem projektu jest multisterownik/ multikontroler kotłowni wykorzystujący jako jednostkę centralną minikomputer Raspberry Pi B+
 
 ## Instalacja
-### Uwaga
+### Uwaga!
 Serwer napisałem pod swoją kotłownię. Jeżeli chesz go wykorzystać u siebie pamiętaj, że cała odpowiedzialność za bezpieczeństwo leży po Twojej stronie. Jeżeli nie do końca wiesz co robisz lepiej wykorzystaj dodatkowe zabezpieczenia. 
 
 ### Założenia
-* Instalacja odbywa się na systemie Raspbian
-* Katalog serwera umieszczony będzie w katalogu głwnym użytkownika *pi*
+* Instalacja odbywa się na systemie Raspbian, korzystając z konta domyślnego użytkownika *pi*
+* Katalog serwera umieszczony będzie w katalogu głównym użytkownika *pi*
 
 ### Przygotowanie systemu
 Na końcu pliku */etc/modules* dopisać dwie linie:
@@ -18,7 +18,7 @@ w1-therm
 ### Serwer WWW
 Serwer WWW nie jest potrzebny do działania serwera kotłowni jednak umożliwia skorzystanie z frontendu do odczytu stanów, korzystania ze statystyk, itp.
 
-#### Instalacja serwera lighttp
+#### Instalacja serwera lighttpd
 ```
 sudo apt-get install lighttpd php5-cgi
 sudo lighttpd-enable-mod fastcgi
