@@ -1,4 +1,4 @@
-# SOWA1
+# SOWA
 Przedmiotem projektu jest multisterownik/ multikontroler kotłowni wykorzystujący jako jednostkę centralną minikomputer Raspberry Pi B+
 
 ## Instalacja

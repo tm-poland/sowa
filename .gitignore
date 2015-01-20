@@ -6,7 +6,7 @@
 *.gz
 *.log
 
-/sowa.conf
+#/sowa.conf
 
 public_html/
 #/public_html/config.inc.php
