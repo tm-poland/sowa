@@ -83,4 +83,4 @@ Możemy zrestartować RPi i brać się za dostosowywanie konfiguracji serwera SO
 `sudo reboot`
 
 ## Licencja
-Do zastanowienia.
+Do użytku prywatnego - bez ograniczeń. W innych przypadkach proszę o kontakt.
