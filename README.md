@@ -25,7 +25,7 @@ Na końcu pliku */etc/lighttpd/lighttpd.conf* dopisujemy:
 ```
 fastcgi.server = ( ".php" => (("bin-path" => "/usr/bin/php5-cgi", "socket" => "/tmp/php.socket")))
 alias.url += ( "/sowa" => "/home/pi/sowa/public_html/" )
-``
+```
 Uruchamiamy ponownie serwer lighttpd:
 `sudo service lighttpd restart`
 
