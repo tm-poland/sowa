@@ -1,5 +1,6 @@
 # SOWA
 Przedmiotem projektu jest multisterownik/ multikontroler kotłowni wykorzystujący jako jednostkę centralną minikomputer Raspberry Pi B+
+
 Opis działania, funkcje, zdjęcia można znaleźć tu: [Multisterownik/ multikontroler kotłowni na Raspberry Pi B+](http://www.elektroda.pl/rtvforum/topic2962538.html)
 
 ## Instalacja
