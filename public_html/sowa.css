@@ -1,0 +1,76 @@
+
+body {font-family: Verdana, sans-serif; font-size:0.8em;}
+#header, #nav, #container, #footer, #co,
+#cwu, #ogrzewanie_podlogowe, #serwer, #legenda, #cont_historia,
+#cont_statystyki, #container_log_normal, #container_log_error,
+#cont_log_normal, #cont_log_error
+{border:1px solid grey; margin:5px; padding:8px;}
+
+.cont2 {display:inline-block;width:100%;}
+
+#container {overflow:hidden;padding-top:28px;}
+
+.praca, .komfortowo {background-color:#66CC00;}
+.rozpalanie, .cieplo {background-color:#ff6666;}
+.wygaszanie, .zimno {background-color:#66ccff;}
+.on {background-color:white;}
+.off {background-color:#cacaca;}
+
+.temp {margin-left:0.5em;font-size:4em;float:right;text-align:right;display:inline-block;}
+#co_temp_powrotu {font-size:0.7em;color:#555555;}
+#co_temp_spalin {font-size:0.6em;color:#402000;}
+#cyrkulacja_temp {font-size:0.8em;} 
+
+#nav {padding-left:5px;padding-right:5px;}
+#nav ul {margin:0; padding:0;}
+#nav ul li {display:inline; margin:5px;}
+#nav a {font-size:1.2em;}
+
+.serwer-normal {display:none;background-color:white;}
+.serwer-error {display:block;background-color:tomato;}
+
+img.grzalka {height:0.8em;}
+img.cyrkulacja {height:0.6em;}
+
+textarea {margin-top:0.5em;height:10em;width:23em;margin-bottom:1em;}
+select {margin-top:0.5em;margin-bottom:1.5em;}
+
+button#zapisz {width:10em;margin-top:0.7em;}
+
+.ok {background-color:#66CC00;}
+.error {background-color:tomato;}
+.pusty {background-color:white;}
+h2.stan {display:inline-block;}
+
+table.legenda {font-size: 1em;}
+td.kolory {border:1px solid grey;padding-left: 1em;}
+#legenda {border:0px;}
+img.spirala, #legenda img.cyrkulacja {height: 1.5em;}
+td.spirala, td.cyrkulacja {padding-left: 1em;text-align: right;}
+
+
+#cont_historia table, #cont_statystyki table {font-size:1em;text-align:center;overflow-x: auto;}
+#cont_historia .tr0 {background-color:#e3e3e3;}
+#cont_historia th {background-color:#cccccc;padding:0.5em;}
+#cont_historia td, #dzienniki_form td {padding:0.3em;}
+#cont_historia, #oddo, #oddo2, #cont_statystyki {overflow-x: auto;}
+#cont_historia, #cont_statystyki {display:none;text-align:center;}
+#oddo input, #oddo2 input {width: 4em;text-align:right;border:1px solid grey;}
+#oddo select, #oddo2 select, #dzienniki_form select {margin-bottom:0.5em;border:1px solid grey;}
+#oddo table, #oddo2 table {font-size:1em;}
+#oddo button {margin-left:1em;}
+
+#cont_statystyki table {text-align:left;border-spacing: 2px;}
+#cont_statystyki td.wartosci, #dzienniki_form select, #dzienniki_form td {text-align:right;}
+
+#cont_statystyki td {border:1px solid #cccccc;padding:0.5em;}
+#cont_statystyki th {border:1px solid #cccccc;background-color:white;padding:0.5em;}
+
+#container_log_normal, #container_log_error {display:none;}
+#cont_log_normal, #cont_log_error {max-height:20em;overflow-y: auto;}
+
+#dzienniki_form select {padding:0.1em;}
+
+#inter, #outer {display:inline-block;margin-right:5em;margin-bottom:10px;}
+#inter img, #outer img {height:5em;margin-right:0.5em;}
+#inter span, #outer span {font-size:3.5em;}
