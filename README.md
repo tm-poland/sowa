@@ -15,6 +15,12 @@ Na końcu pliku */etc/modules* dopisać dwie linie:
 w1-gpio
 w1-therm
 ```
+
+Instalujemy biblioteki dla Pythona:
+```
+sudo apt-get install python-mysqldb
+```
+
 ### Serwer WWW
 Serwer WWW nie jest potrzebny do działania serwera kotłowni jednak umożliwia skorzystanie z frontendu do odczytu stanów, korzystania ze statystyk, itp.
 
