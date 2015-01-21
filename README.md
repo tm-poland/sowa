@@ -93,4 +93,4 @@ sqlite3 sowa.db
 `http://ip_twojego_rpi/sowa`
 
 ## Licencja
-Do użytku prywatnego - bez ograniczeń. W innych przypadkach proszę o kontakt.
+Do użytku prywatnego - bez ograniczeń. W innych przypadkach proszę o [kontakt](https://github.com/tm-poland).
