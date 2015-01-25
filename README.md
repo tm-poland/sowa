@@ -20,6 +20,7 @@ w1-therm
 
 Instalujemy biblioteki dla Pythona:
 ```
+sudo apt-get update
 sudo apt-get install python-mysqldb
 ```
 
