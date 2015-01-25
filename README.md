@@ -62,7 +62,7 @@ quit;
 ```
 
 ##### Instalacja SQLite3
-`sudo apt-get install sqlite3`
+`sudo apt-get install sqlite3 php5-sqlite`
 
 ### Instalacja serwera SOWA
 ```
