@@ -19,7 +19,7 @@ function PobierzStatus() {
       ParseXML(xmlhttp.responseText)
     }
   }
-  xmlhttp.open("POST","tcpclient.php",true);
+  xmlhttp.open("POST","client-server.php",true);
   
   params = "message=STATUS";
   
@@ -201,7 +201,7 @@ function SendConfig() {
           }
         }
       }
-      xmlhttp.open("POST","tcpclient.php?type=config",true);
+      xmlhttp.open("POST","client-server.php?type=config",true);
       
       
       
@@ -250,7 +250,7 @@ function GetConfig(selectBox) {
         }
       }
     }
-    xmlhttp.open("POST","tcpclient.php",true);
+    xmlhttp.open("POST","client-server.php",true);
     
     params = "message=GETCONFIG:"+optgroup.label+":"+option.text+":END.";
     
@@ -369,7 +369,7 @@ function GetHistoria(startod) {
       document.getElementById("cont_historia").innerHTML = xmlhttp.responseText;
     }
   }
-  xmlhttp.open("POST","historiaclient.php",true);
+  xmlhttp.open("POST","client-historia.php",true);
   
   params = "od_dzien="+obj.od_dzien.value
     +"&"+"od_miesiac="+obj.od_miesiac.value
@@ -382,7 +382,8 @@ function GetHistoria(startod) {
     +"&"+"do_godzina="+obj.do_godzina.value
     +"&"+"do_minuta="+obj.do_minuta.value
     +"&"+"wynikow="+obj.wynikow.value
-    +"&"+"start="+startod;
+    +"&"+"start="+startod
+    +"&"+"baza="+obj.baza.value;
   
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.setRequestHeader("Content-length", params.length);
@@ -390,6 +391,57 @@ function GetHistoria(startod) {
 
   xmlhttp.send(params);
 
+}
+
+function GetDates(form, cont) {
+
+  if (form.baza.value == "") return;
+
+  document.getElementById(cont).style.display = "block";
+  document.getElementById(cont).innerHTML = "<img src='img/loading.gif' />";
+  
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange=function() {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+      
+      var tab = xmlhttp.responseText.split(';');
+      if (tab.length < 10) {
+        document.getElementById(cont).innerHTML = "Odpowiedź ma niepoprawny format: <pre>"
+          + xmlhttp.responseText + "</pre>" ;
+          return false;
+      }
+      
+      form.od_dzien.value = tab[0];
+      form.od_miesiac.value = parseInt(tab[1]);
+      form.od_rok.value = tab[2];
+      form.od_godzina.value = tab[3];
+      form.od_minuta.value = tab[4];
+      
+      form.do_dzien.value = tab[5];
+      form.do_miesiac.value = parseInt(tab[6]);
+      form.do_rok.value = tab[7];
+      form.do_godzina.value = tab[8];
+      form.do_minuta.value = tab[9];
+      
+      document.getElementById(cont).innerHTML = "";
+      document.getElementById(cont).style.display = "none";
+    }
+  }
+  
+  xmlhttp.open("POST","client-db-dates.php",true);
+  
+  params = "baza="+form.baza.value;
+  
+  xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+  xmlhttp.setRequestHeader("Content-length", params.length);
+  xmlhttp.setRequestHeader("Connection", "close");
+
+  xmlhttp.send(params);
 }
 
 function GetStatystyki() {
@@ -413,7 +465,7 @@ function GetStatystyki() {
       document.getElementById("cont_statystyki").innerHTML = xmlhttp.responseText;
     }
   }
-  xmlhttp.open("POST","statystykiclient.php",true);
+  xmlhttp.open("POST","client-statystyki.php",true);
   
   params = "od_dzien="+obj.od_dzien.value
     +"&"+"od_miesiac="+obj.od_miesiac.value
@@ -424,7 +476,8 @@ function GetStatystyki() {
     +"&"+"do_miesiac="+obj.do_miesiac.value
     +"&"+"do_rok="+obj.do_rok.value
     +"&"+"do_godzina="+obj.do_godzina.value
-    +"&"+"do_minuta="+obj.do_minuta.value;
+    +"&"+"do_minuta="+obj.do_minuta.value
+    +"&"+"baza="+obj.baza.value;
   
   xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
   xmlhttp.setRequestHeader("Content-length", params.length);
@@ -464,7 +517,7 @@ function GetNormalLog(lines, id) {
           setTimeout(function () { GetNormalLog(1, id); }, 1000);
       }
     }
-    xmlhttp.open("POST","logclient.php",true);
+    xmlhttp.open("POST","client-log.php",true);
 
     params = "type="+"normal"
       +"&"+"offset="+obj.snormal.value
@@ -510,7 +563,7 @@ function GetErrorLog(lines, id) {
         }
       }
     }
-    xmlhttp2.open("POST","logclient.php",true);
+    xmlhttp2.open("POST","client-log.php",true);
 
     params = "type="+"error"
       +"&"+"offset="+obj.serror.value

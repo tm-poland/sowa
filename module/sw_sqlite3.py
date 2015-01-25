@@ -71,7 +71,7 @@ class DB_SQLite3 (threading.Thread):
           self.cur.execute("INSERT INTO historia VALUES ('%d', '%d', '%d', \
             '%d', '%d', '%.2f', '%.2f', '%d', '%.2f', '%d', '%.2f', '%d', \
             '%.2f', '%d', '%.2f', '%.2f', '%.2f', '%.2f')" \
-            %(time.time(), int(config.mysql['freq_zapisu']), \
+            %(time.time(), int(config.sqlite3['freq_zapisu']), \
             int(status.co['praca']), int(status.co['rozpalanie']), \
             int(status.co['wygaszanie']), status.co['temp_zasilania'], \
             status.co['temp_powrotu'], int(status.cwu['praca']), \
