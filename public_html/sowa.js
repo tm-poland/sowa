@@ -517,7 +517,7 @@ function GetNormalLog(lines, id) {
           setTimeout(function () { GetNormalLog(1, id); }, 1000);
       }
     }
-    xmlhttp.open("POST","client-log.php",true);
+    xmlhttp.open("POST","client-log.php",false);
 
     params = "type="+"normal"
       +"&"+"offset="+obj.snormal.value
@@ -563,7 +563,7 @@ function GetErrorLog(lines, id) {
         }
       }
     }
-    xmlhttp2.open("POST","client-log.php",true);
+    xmlhttp2.open("POST","client-log.php",false);
 
     params = "type="+"error"
       +"&"+"offset="+obj.serror.value

@@ -7,6 +7,11 @@ session_start();
 if (!isset($_POST['type']) or !isset($_POST['id'])) exit('Brak danych.');
 if (!isset($_POST['offset'])) $_POST['offset'] = 10;
 
+/*
+echo 'TYP: '.$_POST['type'].', ID: '.$_POST['id'];
+if (isset($_SESSION[$_POST['id']]["log_normal_pobrano"])) echo ', POBRANO: '.$_SESSION[$_POST['id']]["log_normal_pobrano"];
+echo '<br />';
+*/
 
 if ($_POST['type'] == 'normal')
 {
