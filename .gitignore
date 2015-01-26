@@ -5,6 +5,8 @@
 *.tar
 *.gz
 *.log
+*.old
+*.tmp
 
 #/sowa.conf
 
