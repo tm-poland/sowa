@@ -36,8 +36,18 @@ class Config ():
         
         if len(dni) > 0:
           data.append({})
-          data[x]['data_start'] = time.strptime(szData[0], "%d-%m-%Y %H:%M")
-          data[x]['data_end'] = time.strptime(szData[1], "%d-%m-%Y %H:%M")  
+          try:
+            data[x]['data_start'] = time.strptime(szData[0], "%d-%m-%Y %H:%M")
+            
+            # poniżej dodaję 59 sekund do pełnej wartości minuty, inaczej ostatnie
+            # 59 sekund byłoby poza harmonogramem np. do 23:59 <> do 23:59:59
+            data[x]['data_end'] = time.strptime(szData[1]+':59', "%d-%m-%Y %H:%M:%S")
+          except:
+            print >> sys.stderr, time.strftime("%d-%m-%Y %H:%M:%S ") + \
+              ("Podczas parsowania harmonogramu wystąpił błąd. Zakres %s zostanie pominięty. Należy sprawdzić poprawność dat, godzin, dni." \
+              % harm)
+            continue
+              
           data[x]['dni'] = dni
           x += 1
     
