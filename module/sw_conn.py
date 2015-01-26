@@ -206,7 +206,7 @@ class Conn (threading.Thread):
               return False
             
             if etykiety[1] == 'wlaczone':   
-               Log(2, 'Zdalna konfiguracja: wątek ' + etykiety[0] + ' = ' + str(record[1]))
+               # Log(2, 'Zdalna konfiguracja: wątek ' + etykiety[0] + ' = ' + str(record[1]))
                ThreadsLoad()
           
           else:
