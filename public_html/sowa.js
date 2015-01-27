@@ -506,8 +506,8 @@ function GetNormalLog(lines, id) {
       if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
         if (lines > 0) {
-          //if (xmlhttp.responseText.length > 0)
-          document.getElementById("cont_log_normal").innerHTML = document.getElementById("cont_log_normal").innerHTML + xmlhttp.responseText;
+          if (xmlhttp.responseText.length > 0)
+            document.getElementById("cont_log_normal").innerHTML = document.getElementById("cont_log_normal").innerHTML + xmlhttp.responseText;
         } else {
           //if (xmlhttp.responseText.length > 0)
           document.getElementById("cont_log_normal").innerHTML = xmlhttp.responseText;
@@ -551,8 +551,8 @@ function GetErrorLog(lines, id) {
       if (xmlhttp2.readyState==4 && xmlhttp2.status==200) {
         
         if (lines > 0) {
-          //if (xmlhttp2.responseText.length > 0)
-          document.getElementById("cont_log_error").innerHTML = document.getElementById("cont_log_error").innerHTML + xmlhttp2.responseText;
+          if (xmlhttp2.responseText.length > 0)
+            document.getElementById("cont_log_error").innerHTML = document.getElementById("cont_log_error").innerHTML + xmlhttp2.responseText;
         } else {
           //if (xmlhttp2.responseText.length > 0)
           document.getElementById("cont_log_error").innerHTML = xmlhttp2.responseText; 
