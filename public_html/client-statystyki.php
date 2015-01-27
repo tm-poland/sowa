@@ -9,7 +9,7 @@ $czas_od = strtotime($_POST['od_dzien'].'-'.$_POST['od_miesiac']
   .'-'.$_POST['od_rok'].' '.$_POST['od_godzina'].':'.$_POST['od_minuta']);
   
 $czas_do = strtotime($_POST['do_dzien'].'-'.$_POST['do_miesiac'].'-'
-  .$_POST['do_rok'].' '.$_POST['do_godzina'].':'.$_POST['do_minuta']);
+  .$_POST['do_rok'].' '.$_POST['do_godzina'].':'.$_POST['do_minuta'].':59');
 
 
 $stats = array();
