@@ -89,10 +89,14 @@ sqlite3 /home/pi/sowa/sowa.db
 .exit
 ```
 7. Zmień nazwę pliku *sowa.conf-default* na *sowa.conf*:
-`mv /home/pi/sowa/sowa.conf-default /home/pi/sowa/sowa.conf`
+```
+mv /home/pi/sowa/sowa.conf-default /home/pi/sowa/sowa.conf
+```
 8. Dopasuj konfigurację serwera SOWA w pliku *sowa.conf* do swoich potrzeb.
 9. Zmień nazwę pliku konfiguracyjnego frontendu *config.inc.php-default* na *config.inc.php*:
-`mv /home/pi/sowa/public_html/config.inc.php-default /home/pi/sowa/public_html/config.inc.php`
+```
+mv /home/pi/sowa/public_html/config.inc.php-default /home/pi/sowa/public_html/config.inc.php
+```
 10. Dopasuj konfigurację frontendu w pliku *public_html/config.inc.php* do swoich potrzeb.
 11. Możemy zrestartować RPi: `sudo reboot`
 12. Frontend jest dostępny pod adresem: `http://ip_twojego_rpi/sowa`
