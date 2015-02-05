@@ -8,10 +8,10 @@
 *.old
 *.tmp
 
-#/sowa.conf
+/sowa.conf
+/public_html/config.inc.php
 
-#public_html/
-#/public_html/config.inc.php
+
 
 #ARCHIVE
 #CHANGELOG

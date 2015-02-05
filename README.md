@@ -44,7 +44,7 @@ Uruchamiamy ponownie serwer lighttpd:
 `sudo service lighttpd restart`
 
 Upewniamy się, że będzie uruchamiany automatycznie:
-`sudo chkconfig lighttpd on`
+`sudo update-rc.d lighttpd defaults`
 
 #### Instalacja systemu bazy danych
 System bazy danych nie jest wymagany do pracy, jednak pozwala na gromadzenie danych stanów serwera kotłowni. Do wyboru mamy obsługę MySQL lub SQLite3. Można zapisywać dane do jednej lub drugiej bazy lub do dwóch jednocześnie.
@@ -53,7 +53,7 @@ System bazy danych nie jest wymagany do pracy, jednak pozwala na gromadzenie dan
 `apt-get install mysql-server mysql-client php5-mysql`
 
 Upewniamy się, że serwer bazy będzie uruchamiany automatycznie:
-`sudo chkconfig mysql on`
+`sudo update-rc.d mysql defaults`
 
 Tworzymy bazę danych o nazwie *sowa* na potrzeby projektu:
 ```
@@ -79,19 +79,23 @@ sudo chown root:root /etc/init.d/sowa
 sudo chown root:root /etc/logrotate.d/sowa
 ```
 4. Ustawiamy automatyczny start/ stop serwera
-`sudo update-rc.d sowa enable`
+`sudo update-rc.d sowa defaults`
 
 5. Teraz przyszedł czas na konfigurację pliku serwera SOWA */home/pi/sowa/sowa.conf* oraz frontendu */home/pi/sowa/public_html/config.inc.php*
 
 6. Jeżeli wybraliśmy bazę danych SQLite3 należy ją zainicjować. Przechodzimy do katalogu, gdzie ma się znajdować (domyślnie w katalogu serwera, czyli */home/pi/sowa/*) i wpisujemy polecenia:
 ```
-sqlite3 sowa.db
+sqlite3 /home/pi/sowa/sowa.db
 .exit
 ```
-1. Możemy zrestartować RPi i brać się za dostosowywanie konfiguracji serwera SOWA do swoich potrzeb:
-`sudo reboot`
-2. Frontend jest dostępny pod adresem:
-`http://ip_twojego_rpi/sowa`
+7. Zmień nazwę pliku *sowa.conf-default* na *sowa.conf*:
+`mv /home/pi/sowa/sowa.conf-default /home/pi/sowa/sowa.conf`
+8. Dopasuj konfigurację serwera SOWA w pliku *sowa.conf* do swoich potrzeb.
+9. Zmień nazwę pliku konfiguracyjnego frontendu *config.inc.php-default* na *config.inc.php*:
+`mv /home/pi/sowa/public_html/config.inc.php-default /home/pi/sowa/public_html/config.inc.php`
+10. Dopasuj konfigurację frontendu w pliku *public_html/config.inc.php* do swoich potrzeb.
+11. Możemy zrestartować RPi: `sudo reboot`
+12. Frontend jest dostępny pod adresem: `http://ip_twojego_rpi/sowa`
 
 ## Licencja
 Do użytku prywatnego - bez ograniczeń. W innych przypadkach proszę o [kontakt](https://github.com/tm-poland).

@@ -2,9 +2,9 @@
 #===== USTAWIENIA GŁÓWNE =====
 [general]
 debug = False
-loglevel = 2
+loglevel = 1
 logfile = ./log/sowa.log
-dioda = 5
+dioda = 0
 czujnik_temp = 00000585ad32
 czujnik_temp_zew = 0000061b5cab
 czujnik_temp_wew = 0000061cff31
@@ -16,7 +16,7 @@ host =
 
 #===== BAZA DANYCH =====
 [mysql]
-wlaczone = True
+wlaczone = False
 user = pi
 pass = ala*
 db = sowa
@@ -24,7 +24,7 @@ host = localhost
 freq_zapisu = 300
 
 [sqlite3]
-wlaczone = True
+wlaczone = False
 db = sowa.db
 freq_zapisu = 300
 
@@ -63,7 +63,7 @@ temp_min = 34
 
 #===== OBIEG CWU =====
 [cwu]
-wlaczone = True
+wlaczone = False
 czujnik_temp = 00042b12c6ff
 gpio = 26
 dioda = 18
@@ -87,7 +87,7 @@ histereza = 4
 
 #===== CYRKULACJA CWU =====  
 [cyrkulacja]
-wlaczone = True
+wlaczone = False
 histereza = 2
 czujnik_temp = 00042e06cbff
 t_petli = 1
@@ -104,7 +104,7 @@ manual = False
 
 #===== GRZAŁKA =====
 [grzalka]
-wlaczone = True
+wlaczone = False
 t_petli = 1
 gpio = 16
 dioda = 22
@@ -138,7 +138,7 @@ harmonogram = <01-01-2014 13:00>1,2,3,4,5</31-03-2014 15:00>;
   
 #===== OGRZEWANIE PODŁOGOWE ===== 
 [ogrzewanie_podlogowe]
-wlaczone = True
+wlaczone = False
 histereza = 2
 czujnik_temp = 00042e06edff
 gdy_rozpalanie = False
@@ -152,7 +152,7 @@ t_petli = 1
 
 #===== TERMOPARA =====
 [termopara]
-wlaczone = True
+wlaczone = False
 gpio_cs = 10
 gpio_clock = 11
 gpio_data = 9

@@ -1,0 +1,23 @@
+<?php
+
+/* Plik konfiguracyjny strony WWW serwera SOWA */
+
+// adres hosta serwera SOWA
+$address = '127.0.0.1';
+
+// port serwera SOWA
+$service_port = 8888;
+
+// dane dostępowe serwera MySQL
+$db_mysql_host = 'localhost';
+$db_mysql_user = '';
+$db_mysql_pass = '';
+$db_mysql_name = '';
+
+// ścieżka do pliku z bazą danych SQLite np. '../sowa.db'
+$db_sqlite_path = '';
+
+$log = '../log/sowa.log';
+$log_error = '../log/error.log';
+
+?>
