@@ -26,7 +26,7 @@ class BazaDanych (threading.Thread):
         passwd=config.mysql['pass'], db=config.mysql['db'])
       self.cur = self.db.cursor()
     except MySQLdb.Error, e:
-      Log(1, "Błąd połączenia z bazą MySQL %d: %s" % (e.args[0], e.args[1]))
+      Log(0, "Błąd połączenia z bazą MySQL %d: %s" % (e.args[0], e.args[1]))
       self.running = False
 
     try:
@@ -55,11 +55,11 @@ class BazaDanych (threading.Thread):
       self.db.commit()
       
     except MySQLdb.Error as e:
-      Log(1, "Błąd tworzenia tabeli (1) bazy danych MySQL %d: %s" % (e.args[0], e.args[1]))
+      Log(0, "Błąd tworzenia tabeli (1) bazy danych MySQL %d: %s" % (e.args[0], e.args[1]))
       try:
         self.db.rollback()
       except MySQLdb.Error as e:
-        Log(1, "Błąd tworzenia tabeli (2) bazy danych MySQL %d: %s" % (e.args[0], e.args[1]))
+        Log(0, "Błąd tworzenia tabeli (2) bazy danych MySQL %d: %s" % (e.args[0], e.args[1]))
 
 
     while self.running:
@@ -84,11 +84,11 @@ class BazaDanych (threading.Thread):
           self.db.commit()
           
         except MySQLdb.Error as e:
-          Log(1, "Błąd polecenia (1) bazy danych MySQL %d: %s" % (e.args[0], e.args[1]))
+          Log(0, "Błąd polecenia (1) bazy danych MySQL %d: %s" % (e.args[0], e.args[1]))
           try:
             self.db.rollback()
           except MySQLdb.Error as e:
-            Log(1, "Błąd polecenia (2) bazy danych MySQL %d: %s" % (e.args[0], e.args[1]))
+            Log(0, "Błąd polecenia (2) bazy danych MySQL %d: %s" % (e.args[0], e.args[1]))
           
       time.sleep(1)
       

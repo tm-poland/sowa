@@ -26,7 +26,7 @@ class Czujniki (threading.Thread):
     try:
       self.sensor = W1ThermSensor()
     except NoSensorFoundError:
-      Log(1, "System nie wykrył jakiegokolwiek czujnika temperatury!")
+      Log(0, "System nie wykrył jakiegokolwiek czujnika temperatury!")
       self.running = False
     
     while self.running:
@@ -36,7 +36,7 @@ class Czujniki (threading.Thread):
         try:
           self.t = sensor.get_temperature()
         except SensorNotReadyError:
-          Log(1, "Czujnik %s nie jest jeszcze gotowy do odczytu tempertury." % (sensor.id))  
+          Log(0, "Czujnik %s nie jest jeszcze gotowy do odczytu tempertury." % (sensor.id))  
         
         Log(3, "Sensor %s zanotował temperaturę %.1f" % (sensor.id, self.t))
         
@@ -57,7 +57,7 @@ class Czujniki (threading.Thread):
         elif config.cyrkulacja['czujnik_temp'] == sensor.id:
           status.cyrkulacja['temp'] = self.t
         else:
-          Log(2, "Brak sensora %s zdefiniowanego w pliku konfiguracyjnym" % (sensor.id))
+          Log(3, "Brak sensora %s zdefiniowanego w pliku konfiguracyjnym" % (sensor.id))
           
     Log(2, 'Wątek odczytu czujników temperatury kończy działanie.')
       

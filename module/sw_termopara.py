@@ -38,7 +38,7 @@ class Termopara(threading.Thread):
         try:
           status.termopara['temp'] = thermocouple.get()
         except MAX6675Error as e:
-          Log(1, "Wątek termopary: błąd odczytu temperatury, " + e.value)
+          Log(0, "Wątek termopary: błąd odczytu temperatury, " + e.value)
 
       else:
         time.sleep(1)

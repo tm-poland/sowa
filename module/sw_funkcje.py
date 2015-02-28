@@ -18,7 +18,7 @@ def ThreadsExit ():
         thDb.running = False
         thDb.join()
     except NameError:
-      Log(1, 'Błąd: wątek bazy danych został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek bazy danych został wcześniej nieoczekiwanie zamknięty.')
     thDb = None
     
   global thDbSQLite3
@@ -28,7 +28,7 @@ def ThreadsExit ():
         thDbSQLite3.running = False
         thDbSQLite3.join()
     except NameError:
-      Log(1, 'Błąd: wątek bazy danych SQLite3 został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek bazy danych SQLite3 został wcześniej nieoczekiwanie zamknięty.')
     thDbSQLite3 = None
   
   global thCzujniki
@@ -38,7 +38,7 @@ def ThreadsExit ():
         thCzujniki.running = False
         thCzujniki.join()
     except NameError:
-      Log(1, 'Błąd: wątek odczytu czujników temperatury został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek odczytu czujników temperatury został wcześniej nieoczekiwanie zamknięty.')
     thCzujniki = None
 
   global thTermopara
@@ -48,7 +48,7 @@ def ThreadsExit ():
         thTermopara.running = False
         thTermopara.join()
     except NameError:
-      Log(1, 'Błąd: wątek termopary został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek termopary został wcześniej nieoczekiwanie zamknięty.')
     thTermopara = None
     status.termopara['temp'] = 0.0
 
@@ -60,7 +60,7 @@ def ThreadsExit ():
         thGrzalka.join()
         Wylacz('grzalka')
     except NameError:
-      Log(1, 'Błąd: wątek grzałki został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek grzałki został wcześniej nieoczekiwanie zamknięty.')
     thGrzalka = None
       
   global thCyrkulacja
@@ -71,7 +71,7 @@ def ThreadsExit ():
         thCyrkulacja.join()
         Wylacz('cyrkulacja')
     except NameError:
-      Log(1, 'Błąd: wątek cyrkulacji CWU został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek cyrkulacji CWU został wcześniej nieoczekiwanie zamknięty.')
     thCyrkulacja = None
   
   global thOgrzewaniePodlogowe
@@ -82,7 +82,7 @@ def ThreadsExit ():
         thOgrzewaniePodlogowe.join()
         Wylacz('ogrzewanie_podlogowe')
     except NameError:
-      Log(1, 'Błąd: wątek ogrzewania podłogowego został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek ogrzewania podłogowego został wcześniej nieoczekiwanie zamknięty.')
     thOgrzewaniePodlogowe = None
       
   global thCwu
@@ -93,7 +93,7 @@ def ThreadsExit ():
         thCwu.join()
         Wylacz('cwu')
     except NameError:
-      Log(1, 'Błąd: wątek obiegu CWU został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek obiegu CWU został wcześniej nieoczekiwanie zamknięty.')
     thCwu = None
       
   global thCo
@@ -104,7 +104,7 @@ def ThreadsExit ():
         thCo.join()
         Wylacz('co')
     except NameError:
-      Log(1, 'Błąd: wątek obiegu CO został wcześniej nieoczekiwanie zamknięty.')
+      Log(0, 'Błąd: wątek obiegu CO został wcześniej nieoczekiwanie zamknięty.')
     thCo = None  
   
 
@@ -132,7 +132,7 @@ def ThreadsLoad ():
           thTermopara.join()
           status.termopara['temp'] = 0.0
       except NameError:
-        Log(1, 'Błąd: wątek termopary został wcześniej nieoczekiwanie zamknięty.')  
+        Log(0, 'Błąd: wątek termopary został wcześniej nieoczekiwanie zamknięty.')  
       thTermopara = None
               
   global thCo
@@ -152,7 +152,7 @@ def ThreadsLoad ():
           thCo.join()
           Wylacz('co')
       except NameError:
-        Log(1, 'Błąd: wątek obiegu CO został wcześniej nieoczekiwanie zamknięty.')  
+        Log(0, 'Błąd: wątek obiegu CO został wcześniej nieoczekiwanie zamknięty.')  
       thCo = None
   
   global thCwu
@@ -171,7 +171,7 @@ def ThreadsLoad ():
           thCwu.join()
           Wylacz('cwu')
       except NameError:
-        Log(1, 'Błąd: wątek obiegu CWU został wcześniej nieoczekiwanie zamknięty.')  
+        Log(0, 'Błąd: wątek obiegu CWU został wcześniej nieoczekiwanie zamknięty.')  
       thCwu = None
 
   global thOgrzewaniePodlogowe
@@ -190,7 +190,7 @@ def ThreadsLoad ():
           thOgrzewaniePodlogowe.join()
           Wylacz('ogrzewanie_podlogowe')
       except NameError:
-        Log(1, 'Błąd: wątek ogrzewania podłogowego został wcześniej nieoczekiwanie zamknięty.')  
+        Log(0, 'Błąd: wątek ogrzewania podłogowego został wcześniej nieoczekiwanie zamknięty.')  
       thOgrzewaniePodlogowe = None
 
   global thCyrkulacja
@@ -209,7 +209,7 @@ def ThreadsLoad ():
           thCyrkulacja.join()
           Wylacz('cyrkulacja')
       except NameError:
-        Log(1, 'Błąd: wątek cyrkulacji CWU został wcześniej nieoczekiwanie zamknięty.')  
+        Log(0, 'Błąd: wątek cyrkulacji CWU został wcześniej nieoczekiwanie zamknięty.')  
       thCyrkulacja = None
   
   global thGrzalka
@@ -228,7 +228,7 @@ def ThreadsLoad ():
           thGrzalka.join()
           Wylacz('grzalka')
       except NameError:
-        Log(1, 'Błąd: wątek grzałki został wcześniej nieoczekiwanie zamknięty.')  
+        Log(0, 'Błąd: wątek grzałki został wcześniej nieoczekiwanie zamknięty.')  
       thGrzalka = None
 
   global thDb
@@ -244,7 +244,7 @@ def ThreadsLoad ():
           thDb.running = False
           thDb.join()
       except NameError:
-        Log(1, 'Błąd: wątek bazy danych został wcześniej nieoczekiwanie zamknięty.')  
+        Log(0, 'Błąd: wątek bazy danych został wcześniej nieoczekiwanie zamknięty.')  
       thDb = None
 
   global thDbSQLite3
@@ -260,7 +260,7 @@ def ThreadsLoad ():
           thDbSQLite3.running = False
           thDbSQLite3.join()
       except NameError:
-        Log(1, 'Błąd: wątek bazy danych SQLite3 został wcześniej nieoczekiwanie zamknięty.')  
+        Log(0, 'Błąd: wątek bazy danych SQLite3 został wcześniej nieoczekiwanie zamknięty.')  
       thDbSQLite3 = None
       
         
@@ -385,7 +385,7 @@ def Wylacz (urzadzenie, txt=''):
       Log(2, "Wyłączono urządzenie: " + urzadzenie + ' (' + txt + ')')
   
   else:
-    Log(2, "Wyłącz urządzenie: brak urządzenia o takiej nazwie" + \
+    Log(0, "Wyłącz urządzenie: brak urządzenia o takiej nazwie" + \
       ' (' + txt + ')')
     return False
     

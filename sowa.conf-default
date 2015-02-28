@@ -3,7 +3,7 @@
 [general]
 debug = False
 loglevel = 1
-logfile = ./log/sowa.log
+logpath = ./log
 dioda = 0
 czujnik_temp = 00000585ad32
 czujnik_temp_zew = 0000061b5cab

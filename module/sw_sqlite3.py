@@ -25,7 +25,7 @@ class DB_SQLite3 (threading.Thread):
       self.db = sqlite3.connect(config.sqlite3['db'])
       self.cur = self.db.cursor()
     except sqlite3.Error, e:
-      Log(1, "Błąd połączenia z bazą: %s" % (e.args[0]))
+      Log(0, "Błąd połączenia z bazą: %s" % (e.args[0]))
       self.running = False
 
     try:
@@ -54,13 +54,13 @@ class DB_SQLite3 (threading.Thread):
       self.db.commit()
       
     except sqlite3.Error as e:
-      Log(1, "Błąd polecenia (1) tworzenia tabeli w bazie danych SQLite3: %s" % (e.args[0]))
+      Log(0, "Błąd polecenia (1) tworzenia tabeli w bazie danych SQLite3: %s" % (e.args[0]))
       self.running = False
       
       try:
         self.db.rollback()
       except sqlite3.Error as e:
-        Log(1, "Błąd polecenia (2) tworzenia tabeli w bazie danych SQLite3: %s" % (e.args[0]))
+        Log(0, "Błąd polecenia (2) tworzenia tabeli w bazie danych SQLite3: %s" % (e.args[0]))
 
 
     while self.running:
@@ -85,11 +85,11 @@ class DB_SQLite3 (threading.Thread):
           self.db.commit()
           
         except sqlite3.Error as e:
-          Log(1, "Błąd polecenia (1) bazy danych SQLite3: %s" % (e.args[0]))
+          Log(0, "Błąd polecenia (1) bazy danych SQLite3: %s" % (e.args[0]))
           try:
             self.db.rollback()
           except sqlite3.Error as e:
-            Log(1, "Błąd polecenia (2) bazy danych SQLite3: %s" % (e.args[0]))
+            Log(0, "Błąd polecenia (2) bazy danych SQLite3: %s" % (e.args[0]))
           
       time.sleep(1)
       

@@ -38,7 +38,7 @@ try:
       s.bind((config.general['host'], config.general['port']))
       
   except socket.error as msg:
-    Log(1, 'Nie można otworzyć portu serwera. Błąd: ' \
+    Log(0, 'Nie można otworzyć portu serwera. Błąd: ' \
       + str(msg[0]) + ', ' + msg[1])
     sys.exit(1)
        

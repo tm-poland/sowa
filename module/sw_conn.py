@@ -102,7 +102,7 @@ class Conn (threading.Thread):
           return False 
 
       except NameError:
-        Log(1, 'Zdalna konfiguracja: zmienna config.' + \
+        Log(0, 'Zdalna konfiguracja: zmienna config.' + \
           words[0] + '[' +words[1]+ '] nie istnieje');
         return False
       
