@@ -14,17 +14,17 @@ from module.sw_log import *
 from module.sw_funkcje import ThreadsLoad
 
 
-class BlinkLed(threading.Thread):
-  def __init__(self):
-      threading.Thread.__init__(self)
-      self.running = True
-
-  def run(self):  
-    while self.running:
-      gpio.output(config.general['dioda'], False)
-      time.sleep(0.1)
-      gpio.output(config.general['dioda'], True)
-      time.sleep(0.1)
+# class BlinkLed(threading.Thread):
+#   def __init__(self):
+#       threading.Thread.__init__(self)
+#       self.running = True
+# 
+#   def run(self):  
+#     while self.running:
+#       gpio.output(config.general['dioda'], False)
+#       time.sleep(0.1)
+#       gpio.output(config.general['dioda'], True)
+#       time.sleep(0.1)
       
 
 class Conn (threading.Thread): 
@@ -38,7 +38,7 @@ class Conn (threading.Thread):
     self.conntype = ""
     self.message = ""
     self.conn.settimeout(2.0)
-    self.thBlink = BlinkLed()
+    #self.thBlink = BlinkLed()
 
   
   def val2str(self, v):
@@ -224,7 +224,7 @@ class Conn (threading.Thread):
   def run(self):
     
     global conn_threads
-    self.thBlink.start()
+    #self.thBlink.start()
     
     #Sending message to connected client
     #self.conn.send('SOWA1\r\n') #send only takes string
@@ -298,6 +298,6 @@ class Conn (threading.Thread):
     #came out of loop
     Log(3, 'Polaczenie z ' + self.ip + ':' + str(self.port)  + ' zostalo zakonczone.')
     self.conn.close()
-    self.thBlink.running = False
-    self.thBlink.join()
+    #self.thBlink.running = False
+    #self.thBlink.join()
     conn_threads.remove(self)
