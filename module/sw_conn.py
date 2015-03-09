@@ -290,7 +290,7 @@ class Conn (threading.Thread):
         self.conn.sendall(reply)
         break
       else:
-        reply = "2 sekundy na cos konkretnego :)"
+        reply = "Serwer SOWA."
         self.conn.sendall(reply)
       #self.conn.close()
       #break
