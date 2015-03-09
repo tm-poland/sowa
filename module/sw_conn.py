@@ -226,14 +226,7 @@ class Conn (threading.Thread):
     global conn_threads
     #self.thBlink.start()
     
-    #Sending message to connected client
-    #self.conn.send('SOWA1\r\n') #send only takes string
-     
-    #infinite loop so that function do not terminate and thread do not end.
     while self.running:
-        
-      #Receiving from client
-      
       try:
         data = self.conn.recv(1024)
       except:
@@ -292,10 +285,7 @@ class Conn (threading.Thread):
       else:
         reply = "Serwer SOWA."
         self.conn.sendall(reply)
-      #self.conn.close()
-      #break
-     
-    #came out of loop
+
     Log(3, 'Polaczenie z ' + self.ip + ':' + str(self.port)  + ' zostalo zakonczone.')
     self.conn.close()
     #self.thBlink.running = False
