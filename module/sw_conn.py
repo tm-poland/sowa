@@ -153,7 +153,8 @@ class Conn (threading.Thread):
                 record[1] = True
               elif record[1].lower() in ('no', 'false'):  
                 record[1] = False
-              elif re.match(r'^\d+$', record[1]):
+              elif re.match(r'^\d+$', record[1]) \
+                and etykiety[1][:12] != 'czujnik_temp':
                 record[1] = int(record[1])
               elif re.match(r'^\d+\.\d+$', record[1]):
                 record[1] = float(record[1])

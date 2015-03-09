@@ -93,7 +93,7 @@ class Config ():
           dict1[option] = self.hconfig.getboolean(section, option)
         elif re.match(r'^\d+\.\d+$', szTemp):
           dict1[option] = self.hconfig.getfloat(section, option)
-        elif re.match(r'^\d+$', szTemp):
+        elif re.match(r'^\d+$', szTemp) and option[:12] != 'czujnik_temp':
           dict1[option] = self.hconfig.getint(section, option)
         else:
           dict1[option] = self.hconfig.get(section, option)
