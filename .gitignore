@@ -1,5 +1,4 @@
 *.pyc
-*.sql
 *.db
 *.db-journal
 *.tar
