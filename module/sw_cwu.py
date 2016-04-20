@@ -32,9 +32,9 @@ class Cwu(threading.Thread):
           Wlacz('cwu', '1')
           continue
         
-        if (status.co['temp_zasilania'] <= 0) \
-          or (status.cwu['temp'] <= 0):
-          Log(2, 'Wątek CWU: czujnik temeratury zasilania CO lub CWU <= 0')
+        if (status.co['temp_zasilania'] == None) \
+          or (status.cwu['temp'] == None):
+          Log(2, 'Wątek CWU: brak odczytu z czujnika temeratury zasilania CO lub CWU')
           Wylacz('cwu', '3')
           continue
           

@@ -29,8 +29,8 @@ class Grzalka(threading.Thread):
 
         self.t_start = time.time()
           
-        if (status.cwu['temp'] <= 0):
-          Log(2, 'Wątek grzałki: czujnik temeratury CWU <= 0')
+        if (status.cwu['temp'] == None):
+          Log(2, 'Wątek grzałki: brak odczytu z czujnika temeratury CWU')
           Wylacz('grzalka', '8')
           continue 
         

@@ -4,11 +4,13 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>SOWA1</title>
-<script type="text/javascript" src="sowa.js"></script>
+<title>SOWA</title>
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile.custom.min.js"></script>
+<script type="text/javascript" src="js/sowa.js"></script>
 <link rel="stylesheet" href="sowa.css" />
 </head>
-<body <?php if (empty($_GET['site'])) { ?>onload="PobierzStatus();timeout();"<?php } ?>>
+<body>
 
 <div id="header">
   <h1>SOWA</h1>

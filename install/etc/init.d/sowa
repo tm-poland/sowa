@@ -32,7 +32,7 @@ case "$1" in
     if [ "$PROCESS" != "" ]; then
       echo "Zatrzymywanie serwera SOWA1..."
       sudo kill -SIGTERM $PROCESS
-      sleep 10
+      sleep 15
     else
       echo "Serwer SOWA1 nie jest uruchomiony."
     fi

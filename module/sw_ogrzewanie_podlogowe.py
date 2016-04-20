@@ -33,9 +33,9 @@ class OgrzewaniePodlogowe(threading.Thread):
           Wlacz('ogrzewanie_podlogowe', '1')
           continue
         
-        if (status.co['temp_zasilania'] <= 0) \
-          or (status.ogrzewanie_podlogowe['temp'] <= 0):
-          Log(2, 'Wątek ogrzewania podłogowego: czujnik temeratury zasilania CO lub ogrzewania podłogowego <= 0')
+        if (status.co['temp_zasilania'] == None) \
+          or (status.ogrzewanie_podlogowe['temp'] == None):
+          Log(2, 'Wątek ogrzewania podłogowego: brak odczytu z czujnika temeratury zasilania CO lub ogrzewania podłogowego')
           Wylacz('ogrzewanie_podlogowe', '7')
           continue 
         

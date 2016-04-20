@@ -77,7 +77,7 @@ finally:
     print >> sys.stderr, time.strftime("%d-%m-%Y %H:%M:%S ") + "Wystąpił błąd programu:"
     traceback.print_exception(exc_type, exc_value, exc_traceback, limit=2, file=sys.stderr)
   
-  Log(1, "Serwer otrzymał sygnał SIGTERM. Kończy działanie.")
+  Log(1, "Serwer otrzymał sygnał SIGTERM. Kończy działanie...")
   
   for t in conn_threads:
     t.running = False
@@ -90,3 +90,4 @@ finally:
   s.close()
   Power(False)
   gpio.cleanup()
+  Log(1, "Serwer zakończył działanie.")

@@ -68,19 +68,40 @@ class DB_SQLite3 (threading.Thread):
         try:
           self.t_start = time.time()
           
-          self.cur.execute("INSERT INTO historia VALUES ('%d', '%d', '%d', \
-            '%d', '%d', '%.2f', '%.2f', '%d', '%.2f', '%d', '%.2f', '%d', \
-            '%.2f', '%d', '%.2f', '%.2f', '%.2f', '%.2f')" \
-            %(time.time(), int(config.sqlite3['freq_zapisu']), \
-            int(status.co['praca']), int(status.co['rozpalanie']), \
-            int(status.co['wygaszanie']), status.co['temp_zasilania'], \
-            status.co['temp_powrotu'], int(status.cwu['praca']), \
-            status.cwu['temp'], int(status.ogrzewanie_podlogowe['praca']), \
-            status.ogrzewanie_podlogowe['temp'], \
-            int(status.cyrkulacja['praca']), status.cyrkulacja['temp'], \
-            int(status.grzalka['praca']), status.general['temp'], \
-            status.general['temp_wew'], status.general['temp_zew'], \
-            status.termopara['temp']))
+#           self.cur.execute("INSERT INTO historia VALUES ('%d', '%d', '%d', \
+#             '%d', '%d', '%.2f', '%.2f', '%d', '%.2f', '%d', '%.2f', '%d', \
+#             '%.2f', '%d', '%.2f', '%.2f', '%.2f', '%.2f')" \
+#             %(time.time(), int(config.sqlite3['freq_zapisu']), \
+#             int(status.co['praca']), int(status.co['rozpalanie']), \
+#             int(status.co['wygaszanie']), status.co['temp_zasilania'], \
+#             status.co['temp_powrotu'], int(status.cwu['praca']), \
+#             status.cwu['temp'], int(status.ogrzewanie_podlogowe['praca']), \
+#             status.ogrzewanie_podlogowe['temp'], \
+#             int(status.cyrkulacja['praca']), status.cyrkulacja['temp'], \
+#             int(status.grzalka['praca']), status.general['temp'], \
+#             status.general['temp_wew'], status.general['temp_zew'], \
+#             status.termopara['temp']))
+
+          self.cur.execute("INSERT INTO historia VALUES (" \
+            + ("'%d', " % (time.time())) \
+            + ("'%d', " % (int(config.mysql['freq_zapisu']))) \
+            + ("'%d', " % (int(status.co['praca']))) \
+            + ("'%d', " % (int(status.co['rozpalanie']))) \
+            + ("'%d', " % (int(status.co['wygaszanie']))) \
+            + ("'%.2f', " % (status.co['temp_zasilania']) if status.co['temp_zasilania'] != None else "NULL") \
+            + ("'%.2f', " % (status.co['temp_powrotu']) if status.co['temp_powrotu'] != None else "NULL") \
+            + ("'%d', " % (int(status.cwu['praca']))) \
+            + ("'%.2f', " % (status.cwu['temp']) if status.cwu['temp'] != None else "NULL") \
+            + ("'%d', " % (int(status.ogrzewanie_podlogowe['praca']))) \
+            + ("'%.2f', " % (status.ogrzewanie_podlogowe['temp']) if status.ogrzewanie_podlogowe['temp'] != None else "NULL") \
+            + ("'%d', " % (int(status.cyrkulacja['praca']))) \
+            + ("'%.2f', " % (status.cyrkulacja['temp']) if status.cyrkulacja['temp'] != None else "NULL") \
+            + ("'%d', " % (int(status.grzalka['praca']))) \
+            + ("'%.2f', " % (status.general['temp']) if status.general['temp'] != None else "NULL") \
+            + ("'%.2f', " % (status.general['temp_wew']) if status.general['temp_wew'] != None else "NULL") \
+            + ("'%.2f', " % (status.general['temp_zew']) if status.general['temp_zew'] != None else "NULL") \
+            + ("'%.2f'" % (status.termopara['temp']) if status.termopara['temp'] != None else "NULL") \
+            + ")")
             
           self.db.commit()
           

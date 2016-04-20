@@ -14,7 +14,8 @@ class Co(threading.Thread):
     self.running = True
     self.t_start = 0
     self.t_start2 = 0
-    self.temp_tab = []
+    self.temp_tab = []  # tablica czujnika zasilania
+    self.temp_tab_tp = [] # tablica termopary
     
   def run(self):
     
@@ -31,10 +32,22 @@ class Co(threading.Thread):
       if time.time() - self.t_start2 >= config.co['czas_probek_temp'] \
         and status.co['temp_zasilania'] > 0:
         self.t_start2 = time.time()
-        self.temp_tab.append(status.co['temp_zasilania'])
-        Log(3, "Do tablicy temperatur CO dodano " + str(status.co['temp_zasilania']))
-        if len(self.temp_tab) > 10:
-          self.temp_tab.pop(0)  
+        
+        # fragment dla czyjnika zasilania CO
+        if status.co['temp_zasilania'] != None:
+          self.temp_tab.append(status.co['temp_zasilania'])
+          Log(3, "Do tablicy temperatur CO dodano " + str(status.co['temp_zasilania']))
+          if len(self.temp_tab) > 10:
+            self.temp_tab.pop(0) 
+          
+        # fragment dla termopary
+        if config.termopara['wlaczone'] == True \
+          and config.termopara['rozpalanie_delta'] > 0 \
+          and status.termopara['temp'] != None:
+          self.temp_tab_tp.append(status.termopara['temp'])
+          Log(3, "Do tablicy temperatur termopary dodano " + str(status.termopara['temp']))
+          if len(self.temp_tab_tp) > 10:
+            self.temp_tab_tp.pop(0) 
       
       
       if time.time() - self.t_start >= config.co['t_petli']:
@@ -45,8 +58,8 @@ class Co(threading.Thread):
           Wlacz('co', '1')
           continue
           
-        if (status.co['temp_zasilania'] <= 0):
-          Log(2, 'Wątek CO: czujnik temeratury zasilania CO <= 0')
+        if (status.co['temp_zasilania'] == None):
+          Log(2, 'Wątek CO: brak odczytu z czujnika temeratury zasilania CO')
           Wylacz('co', '10')
           continue 
           
@@ -86,8 +99,18 @@ class Co(threading.Thread):
             Rozpalanie('8')
             continue
           else:
-            WylaczRozpalanie('8')
-            continue
+            if config.termopara['wlaczone'] == True \
+              and config.termopara['rozpalanie_delta'] > 0  \
+              and (len(self.temp_tab_tp) > 1):
+              if (self.temp_tab_tp[len(self.temp_tab_tp) - 1] - self.temp_tab_tp[0]) >= config.termopara['rozpalanie_delta']:
+                Rozpalanie('11')
+                continue
+              else:
+                WylaczRozpalanie('12')
+                continue        
+            else:
+              WylaczRozpalanie('13')
+              continue
                   
         if config.co['wygaszanie'] and status.co['praca'] == True \
           and (status.co['temp_zasilania'] <= config.co['temp_wygaszanie']) \

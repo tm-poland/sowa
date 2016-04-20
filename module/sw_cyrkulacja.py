@@ -32,9 +32,9 @@ class Cyrkulacja(threading.Thread):
           Wlacz('cyrkulacja', '1')
           continue
         
-        if (status.cwu['temp'] <= 0) \
-          or (status.cyrkulacja['temp'] <= 0):
-          Log(2, 'Wątek cyrkulacji: czujnik temeratury CWU lub cyrkulacji <= 0')
+        if (status.cwu['temp'] == None) \
+          or (status.cyrkulacja['temp'] == None):
+          Log(2, 'Wątek cyrkulacji: brak odczytu z czujnika temeratury CWU lub cyrkulacji')
           Wylacz('cyrkulacja', '7')
           continue 
         

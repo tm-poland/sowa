@@ -159,3 +159,6 @@ gpio_data = 9
 t_petli = 1
 temp_alarm = 150  
 tylko_gdy_co = True
+# jezeli wartosc "0" to nie bierze udzialu w wykrywaniu rozpalania
+# kazda wieksza to roznica pomiedzy odczytami temp które uruchamiaja rozpalanie 
+rozpalanie_delta = 50

@@ -74,6 +74,7 @@
       <tr><td class="cyrkulacja"><img class="cyrkulacja" src="img/cyrkulacja_szara.png" alt="" /></td><td>opcja cyrkulacji wyłączona</td></tr>
       <tr><td class="cyrkulacja"><img class="cyrkulacja" src="img/cyrkulacja_czarna.png" alt="" /></td><td>opcja cyrkulacji włączona</td></tr>
       <tr><td class="cyrkulacja"><img class="cyrkulacja" src="img/cyrkulacja_czerwona.png" alt="" /></td><td>praca cyrkulacji CWU</td></tr>
+      <tr><td class="cyrkulacja"><img class="cyrkulacja" src="img/manual.png" alt="" /></td><td>tryb ręczny</td></tr>
       </table>
     </div>
   </div>

@@ -733,12 +733,12 @@ $(document).ready(function(){
   PobierzStatus();
   StatusTask();
   
-  $("#cwu").on("taphold dblclick", "#grzalka_praca", function (event) {
+  $("#cwu").on("taphold dblclick", "#grzalka-switch", function (event) {
     event.preventDefault();
     ManualSwitch("grzalka");
   });  
   
-  $("#cwu").on("taphold dblclick", "#cyrkulacja_praca", function (event) {
+  $("#cwu").on("taphold dblclick", "#cyrkulacja-switch", function (event) {
     event.preventDefault();
     ManualSwitch("cyrkulacja");
   });
@@ -816,20 +816,20 @@ function Load_JSON_Data()
     }
     
     if (sowa.grzalka_praca) {
-      $("#grzalka_praca").html("<img class='grzalka' src='img/spirala_czerwona"+((sowa.grzalka_manual) ? "_manual" : "")+".png' />");
+      $("#grzalka_praca").html("<img class='grzalka' id='grzalka-switch' src='img/spirala_czerwona"+((sowa.grzalka_manual) ? "_manual" : "")+".png' />");
     } else if (sowa.grzalka_on) {
-      $("#grzalka_praca").html("<img class='grzalka' src='img/spirala_czarna"+((sowa.grzalka_manual) ? "_manual" : "")+".png' />");
+      $("#grzalka_praca").html("<img class='grzalka' id='grzalka-switch' src='img/spirala_czarna"+((sowa.grzalka_manual) ? "_manual" : "")+".png' />");
     } else {
-      $("#grzalka_praca").html("<img class='grzalka' src='img/spirala_szara"+((sowa.grzalka_manual) ? "_manual" : "")+".png' />");
+      $("#grzalka_praca").html("<img class='grzalka' id='grzalka-switch' src='img/spirala_szara"+((sowa.grzalka_manual) ? "_manual" : "")+".png' />");
     }
     
     
     if (sowa.cyrkulacja_praca) {
-      $("#cyrkulacja_praca").html("<img class='cyrkulacja' src='img/cyrkulacja_czerwona"+((sowa.cyrkulacja_manual) ? "_manual" : "")+".png' />");
+      $("#cyrkulacja_praca").html("<img class='cyrkulacja' id='cyrkulacja-switch' src='img/cyrkulacja_czerwona"+((sowa.cyrkulacja_manual) ? "_manual" : "")+".png' />");
     } else if (sowa.grzalka_on) {
-      $("#cyrkulacja_praca").html("<img class='cyrkulacja' src='img/cyrkulacja_czarna"+((sowa.cyrkulacja_manual) ? "_manual" : "")+".png' />");
+      $("#cyrkulacja_praca").html("<img class='cyrkulacja' id='cyrkulacja-switch' src='img/cyrkulacja_czarna"+((sowa.cyrkulacja_manual) ? "_manual" : "")+".png' />");
     } else {
-      $("#cyrkulacja_praca").html("<img class='cyrkulacja' src='img/cyrkulacja_szara"+((sowa.cyrkulacja_manual) ? "_manual" : "")+".png' />");
+      $("#cyrkulacja_praca").html("<img class='cyrkulacja' id='cyrkulacja-switch' src='img/cyrkulacja_szara"+((sowa.cyrkulacja_manual) ? "_manual" : "")+".png' />");
     }
   
     $("#ogrzewanie_podlogowe_temp").html(parseFloat(sowa.ogrzewanie_podlogowe_temp).toFixed(1) + "&deg;C");
@@ -844,8 +844,8 @@ function Load_JSON_Data()
   } else {
     $("#co").addClass("off");
     $("#cwu").addClass("off");
-    $("#grzalka_praca").html("<img class='grzalka' src='img/spirala_szara.png' />");
-    $("#cyrkulacja_praca").html("<img class='cyrkulacja' src='img/cyrkulacja_szara.png' />");
+    $("#grzalka_praca").html("<img class='grzalka' id='grzalka-switch' src='img/spirala_szara.png' />");
+    $("#cyrkulacja_praca").html("<img class='cyrkulacja' id='cyrkulacja-switch' src='img/cyrkulacja_szara.png' />");
     $("#ogrzewanie_podlogowe").addClass("off");
     //document.getElementById("serwer").addClass="off";
     $("#error").html("<p>Błąd połączenia z serwerem!</p>");
